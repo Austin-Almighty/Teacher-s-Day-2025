@@ -8,7 +8,7 @@ export default function Home() {
     <div className="relative flex flex-col h-screen overflow-hidden">
       <header
         data-theme="aqua"
-        className="flex items-center justify-center p-24 bg-primary w-full h-auto"
+        className="flex items-center justify-center p-16 sm:p-24 bg-primary w-full h-auto"
       >
         <svg
         //   width="847"
