@@ -82,15 +82,14 @@ export default function Home() {
       </header>
       <main
         data-theme="aqua"
-        className="flex min-h-screen flex-col items-center bg-primary px-4 sm:px-0"
+        className="flex flex-col items-center bg-primary px-4 sm:px-0 h-full"
       >
-        {/* <h1 className="font-extrabold text-primary-content pb-5 text-3xl italic">chatGPTI</h1> */}
-        <h1 className="font-extrabold text-primary-content pb-15 text-xl sm:text-3xl">
+        <h1 className="font-extrabold text-primary-content pb-15 text-xl sm:text-3xl text-center">
           Countdown to Teacher's Day 2025
         </h1>
         <Timer dataTheme={"aqua"} />
-        <h1 className="font-extrabold text-primary-content pt-15 text-2xl sm:text-3xl">
-          Come back for more!
+        <h1 className="font-extrabold text-primary-content pt-15 text-2xl sm:text-3xl text-center">
+          Come back for more surprises!
         </h1>
         <Image src={Ship} alt="cruise ship" width={200} height={200} priority className="animate-bob will-change-transform"
 />
