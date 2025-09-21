@@ -8,14 +8,15 @@ export default function Home() {
     <div className="relative flex flex-col h-screen overflow-hidden">
       <header
         data-theme="aqua"
-        className="flex items-center justify-center p-24 bg-primary"
+        className="flex items-center justify-center p-24 bg-primary w-full h-auto"
       >
         <svg
-          width="847"
-          height="122"
+        //   width="847"
+        //   height="122"
           viewBox="0 0 847 122"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-auto min-w-[350px]"
         >
           <g filter="url(#filter0_d_18_2)">
             <mask
@@ -81,14 +82,14 @@ export default function Home() {
       </header>
       <main
         data-theme="aqua"
-        className="flex min-h-screen flex-col items-center bg-primary"
+        className="flex min-h-screen flex-col items-center bg-primary px-4 sm:px-0"
       >
         {/* <h1 className="font-extrabold text-primary-content pb-5 text-3xl italic">chatGPTI</h1> */}
-        <h1 className="font-extrabold text-primary-content pb-15 text-3xl">
+        <h1 className="font-extrabold text-primary-content pb-15 text-xl sm:text-3xl">
           Countdown to Teacher's Day 2025
         </h1>
         <Timer dataTheme={"aqua"} />
-        <h1 className="font-extrabold text-primary-content pt-15 text-3xl">
+        <h1 className="font-extrabold text-primary-content pt-15 text-2xl sm:text-3xl">
           Come back for more!
         </h1>
         <Image src={Ship} alt="cruise ship" width={200} height={200} priority className="animate-bob will-change-transform"

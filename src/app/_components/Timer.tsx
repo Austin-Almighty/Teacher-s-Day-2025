@@ -53,25 +53,25 @@ export default function Timer({dataTheme}: {dataTheme: string}) {
   return (
     <div datat-theme={dataTheme} className="grid grid-flow-col gap-5 text-center auto-cols-max text-primary-content">
         <div className="flex flex-col">
-            <span className="countdown font-mono text-5xl">
+            <span className="countdown font-mono text-2xl sm:text-5xl">
                 <span style={{ "--value": days } as React.CSSProperties} aria-live="polite">{days}</span>
             </span>
             days
         </div>
         <div className="flex flex-col">
-            <span className="countdown font-mono text-5xl">
+            <span className="countdown font-mono text-2xl sm:text-5xl">
                 <span style={{ "--value": hours } as React.CSSProperties} aria-live="polite">{hours}</span>
             </span>
             hours
         </div>
         <div className="flex flex-col">
-            <span className="countdown font-mono text-5xl">
+            <span className="countdown font-mono text-2xl sm:text-5xl">
                 <span style={{ "--value": minutes } as React.CSSProperties} aria-live="polite">{minutes}</span>
             </span>
             min
         </div>
         <div className="flex flex-col">
-            <span className="countdown font-mono text-5xl">
+            <span className="countdown font-mono text-2xl sm:text-5xl">
                 <span style={{ "--value": seconds } as React.CSSProperties} aria-live="polite">{seconds}</span>
             </span>
             sec
