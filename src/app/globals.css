@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+};
 
 :root {
   --background: #ffffff;
@@ -23,4 +26,35 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+svg path {
+  fill: transparent;
+  stroke: #cbf7ed;
+  stroke-width: 0.5;
+  stroke-dasharray: 0;
+  /* stroke-dashoffset: 0; */
+  animation: textAnimation 4s ease-in-out 1 forwards;
+}
+
+@keyframes textAnimation {
+  0% {
+    stroke-dashoffset: 250;
+  }
+ 
+  100% {
+    fill: #cbf7ed;
+    /* stroke-dashoffset: 0; */
+    stroke-width: 0.5;
+  }
+}
+
+@keyframes bob {
+  0%,100% { transform: translateY(0) translateX(0) rotate(0deg); }
+  25%     { transform: translateY(-6px) translateX(-1px) rotate(-0.8deg); }
+  50%     { transform: translateY(-12px) translateX(0) rotate(0.5deg); }
+  75%     { transform: translateY(-6px) translateX(1px) rotate(-0.8deg); }
+}
+.animate-bob {
+  animation: bob 3.8s ease-in-out infinite;
 }
