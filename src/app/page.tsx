@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Timer from "./_components/Timer";
-import Teacher from "../app/_components/2025.svg?url";
 import Ship from "../app/_components/cruise.svg?url";
 
 export default function Home() {
