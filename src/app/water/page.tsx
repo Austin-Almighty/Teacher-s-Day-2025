@@ -6,13 +6,13 @@ import Ship from "../_components/cruise.svg";
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col h-screen overflow-hidden">
+    <div className="relative flex flex-col h-dvh overflow-hidden">
       <Image
         src="/wave.svg" // in /public
         alt=""
         fill // makes it position: absolute; inset: 0
         sizes="100vw"
-        className="object-cover z-100 object-[center_120px]"
+        className="object-cover sm:object-cover z-100 object-[center_-80px] sm:object-[center_80px] md:object-[center_0px] lg:object-[center_40px]"
         priority
       />
       <div className="relative z-10">
