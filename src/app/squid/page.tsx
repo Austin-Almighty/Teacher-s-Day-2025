@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import Timer from "../_components/Timer";
 import Ship from "../_components/cruise.svg";

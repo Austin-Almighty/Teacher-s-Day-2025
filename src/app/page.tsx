@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import Timer from "./_components/Timer";
 import Ship from "../app/_components/cruise.svg";
@@ -82,7 +83,6 @@ export default function Home() {
         data-theme="aqua"
         className="flex min-h-screen flex-col items-center bg-primary"
       >
-        {/* <h1 className="font-extrabold text-primary-content pb-5 text-3xl italic">chatGPTI</h1> */}
         <h1 className="font-extrabold text-primary-content pb-15 text-3xl">
           Countdown to Teacher's Day 2025
         </h1>
