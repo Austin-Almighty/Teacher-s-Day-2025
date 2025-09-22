@@ -12,7 +12,7 @@ export default function Home() {
         alt=""
         fill // makes it position: absolute; inset: 0
         sizes="100vw"
-        className="object-cover sm:object-cover z-100 object-[center_-80px] sm:object-[center_80px] md:object-[center_0px] lg:object-[center_40px]"
+        className="hidden sm:block object-cover sm:object-cover z-100 object-[center_-80px] sm:object-[center_80px] md:object-[center_0px] lg:object-[center_40px]"
         priority
       />
       <div className="relative z-10">
