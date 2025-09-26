@@ -60,23 +60,27 @@ svg path {
 }
 
 .flip-card {
-  perspective: 1000px;
   position: relative;
+  perspective: 1000px;
+  -webkit-perspective: 1000px; /* Safari */
 }
 
 .flip-card-inner {
   position: relative;
   transition: transform 0.6s;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d; /* Safari */
   transform-origin: center center;
+  will-change: transform;
 }
 
 .flip-card-front,
 .flip-card-back {
   position: absolute;
-  backface-visibility: hidden;
   inset: 0;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari */
+  overflow: hidden; /* prevent media overflow on small screens */
 }
 
 .flip-card-back {
@@ -90,4 +94,13 @@ svg path {
   width: auto;
   height: auto;
   object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bob {
+    animation: none !important;
+  }
+  svg path {
+    animation: none !important;
+  }
 }

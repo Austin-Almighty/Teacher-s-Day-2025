@@ -1,13 +1,30 @@
 "use client"
-import  { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import  { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import CardFlip from "./_components/CardFlip";
 import Image from "next/image";
+import {useState, useEffect, useRef} from "react";
 
 export default function Home() {
-  
+ const [pages, setPages] = useState(3);
+ const ref = useRef<IParallax>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 640px)"); // sm breakpoint
+    const apply = () => setPages(mq.matches ? 3 : 5);
+    apply();
+    
+    if (mq.addEventListener) mq.addEventListener("change", apply);
+    else if ((mq as any).addListener) (mq as any).addListener(apply);
+
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener("change", apply);
+      else if ((mq as any).removeListener) (mq as any).removeListener(apply);
+    };
+  }, []);
+
   return (
-    <div className="h-fit w-full items-center bg-gradient-to-b from-blue-800 to-blue-950">
-      <Parallax pages={5}>
+    <div className="h-screen w-full items-center bg-gradient-to-b from-blue-800 to-blue-950">
+      <Parallax pages={pages} ref={ref} key={pages}>
         <ParallaxLayer
           factor={2}
           speed={0.5}
@@ -151,11 +168,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <CardFlip>
               <Image
-                src="/神秘兌換券/voucher1_front.png"
+                src="/vouchers/voucher1_front.png"
                 width={350}
                 height={200}
                 alt="Shutup"
                 className="object-contain"
+                priority
               />
               <Image
                 src="/神秘兌換券/voucher1_back.png"
@@ -167,30 +185,14 @@ export default function Home() {
           </CardFlip>
           <CardFlip>
             <Image
-              src="/神秘兌換券/voucher2_front.png"
+              src="/vouchers/voucher2_front.png"
               width={350}
               height={200}
               alt="Shutup"
               className="object-contain"
             />
             <Image
-              src="/神秘兌換券/voucher2_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/神秘兌換券/voucher3_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-            <Image
-              src="/神秘兌換券/voucher3_back.png"
+              src="/vouchers/voucher2_back.png"
               width={350}
               height={200}
               alt="Shutup"
@@ -199,30 +201,14 @@ export default function Home() {
           </CardFlip>
           <CardFlip>
             <Image
-              src="/神秘兌換券/voucher4_front.png"
+              src="/vouchers/voucher3_front.png"
               width={350}
               height={200}
               alt="Shutup"
               className="object-contain"
             />
             <Image
-              src="/神秘兌換券/voucher4_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/神秘兌換券/voucher5_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-            <Image
-              src="/神秘兌換券/voucher5_back.png"
+              src="/vouchers/voucher3_back.png"
               width={350}
               height={200}
               alt="Shutup"
@@ -231,30 +217,14 @@ export default function Home() {
           </CardFlip>
           <CardFlip>
             <Image
-              src="/神秘兌換券/voucher6_front.png"
+              src="/vouchers/voucher4_front.png"
               width={350}
               height={200}
               alt="Shutup"
               className="object-contain"
             />
             <Image
-              src="/神秘兌換券/voucher6_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/神秘兌換券/voucher7_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-            <Image
-              src="/神秘兌換券/voucher7_back.png"
+              src="/vouchers/voucher4_back.png"
               width={350}
               height={200}
               alt="Shutup"
@@ -263,14 +233,14 @@ export default function Home() {
           </CardFlip>
           <CardFlip>
             <Image
-              src="/神秘兌換券/voucher8_front.png"
+              src="/vouchers/voucher5_front.png"
               width={350}
               height={200}
               alt="Shutup"
               className="object-contain"
             />
             <Image
-              src="/神秘兌換券/voucher8_back.png"
+              src="/vouchers/voucher5_back.png"
               width={350}
               height={200}
               alt="Shutup"
@@ -279,14 +249,62 @@ export default function Home() {
           </CardFlip>
           <CardFlip>
             <Image
-              src="/神秘兌換券/voucher9_front.png"
+              src="/vouchers/voucher6_front.png"
               width={350}
               height={200}
               alt="Shutup"
               className="object-contain"
             />
             <Image
-              src="/神秘兌換券/voucher9_back.png"
+              src="/vouchers/voucher6_back.png"
+              width={350}
+              height={200}
+              alt="Shutup"
+              className="object-contain"
+            />
+          </CardFlip>
+          <CardFlip>
+            <Image
+              src="/vouchers/voucher7_front.png"
+              width={350}
+              height={200}
+              alt="Shutup"
+              className="object-contain"
+            />
+            <Image
+              src="/vouchers/voucher7_back.png"
+              width={350}
+              height={200}
+              alt="Shutup"
+              className="object-contain"
+            />
+          </CardFlip>
+          <CardFlip>
+            <Image
+              src="/vouchers/voucher8_front.png"
+              width={350}
+              height={200}
+              alt="Shutup"
+              className="object-contain"
+            />
+            <Image
+              src="/vouchers/voucher8_back.png"
+              width={350}
+              height={200}
+              alt="Shutup"
+              className="object-contain"
+            />
+          </CardFlip>
+          <CardFlip>
+            <Image
+              src="/vouchers/voucher9_front.png"
+              width={350}
+              height={200}
+              alt="Shutup"
+              className="object-contain"
+            />
+            <Image
+              src="/vouchers/voucher9_back.png"
               width={350}
               height={200}
               alt="Shutup"
