@@ -19,13 +19,13 @@ const CardFlip = ({children}: CardFlipProps) => {
         }
     }   
   return (
-    <div className='flex relative items-center justify-center cursor-pointer h-full w-full hover:scale-105 transition-transform duration-300'>
+    <div className='flex relative items-center justify-center cursor-pointer hover:scale-105 transition-transform duration-300'>
         <div className='flip-card relative rounded-md w-72 h-48 sm:w-96 sm:h-64' onClick={handleFlip}>
             <motion.div className='flip-card-inner relative' initial={false} animate={{rotateY: isFlipped ? 180 : 0}} transition={{duration: 0.6}} onAnimationComplete={() => setIsAnimating(false)}>
-                <div className='flip-card-front absolute inset-0 bg-cover border-1 rounded-lg p-4 flex flex-col items-center justify-center w-fit h-fit'>
+                <div className='flip-card-front absolute inset-0 bg-cover border-1 rounded-lg p-4 flex flex-col items-center justify-center w-fit h-fit overflow-hidden'>
                     {front}
                 </div>
-                <div className='flip-card-back absolute inset-0 bg-cover border-1 rounded-lg p-4 flex flex-col items-center justify-center w-fit h-fit'>
+                <div className='flip-card-back absolute inset-0 bg-cover border-1 rounded-lg p-4 flex flex-col items-center justify-center w-fit h-fit overflow-hidden'>
                     {back}
                 </div>
             </motion.div>

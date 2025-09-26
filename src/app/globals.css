@@ -82,3 +82,12 @@ svg path {
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+.flip-card-front img, .flip-card-back img,
+.flip-card-front svg, .flip-card-back svg {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}

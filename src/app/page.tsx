@@ -11,21 +11,22 @@ export default function Home() {
   
   return (
     <div className="h-dvh w-full items-center bg-gradient-to-b from-blue-800 to-blue-950">
-      <Parallax pages={6}>
+      <Parallax pages={12}>
         <ParallaxLayer
-          factor={1.5}
+          factor={2}
           speed={0.5}
+          offset={0}
           style={{
             backgroundImage: `url(/sea_surface.jpg)`,
             backgroundSize: "cover",
           }}
-          className="flex items-center justify-start w-full h-full flex-col p-4 sm:p-8"
+          className="flex items-center justify-start flex-col p-4 sm:p-8"
         >
-
         </ParallaxLayer>
         <ParallaxLayer
           speed={1}
           offset={0}
+          factor={1}
           className="py-8 px-8 justify-start items-center flex flex-col gap-8"
         >
           <svg
@@ -135,7 +136,7 @@ export default function Home() {
           }}
           className="flex items-center justify-center h-full w-full"
         ></ParallaxLayer>
-        <ParallaxLayer speed={1} offset={1} className="flex flex-col gap-8">
+        <ParallaxLayer speed={1} offset={1} factor={0.5} className="flex flex-col gap-8">
           <div className="flex flex-col items-center justify-center bg-blue-800/50 p-8 rounded-lg shadow-lg gap-4">
             <h1 className="font-extrabold text-2xl md:text-4xl lg:text-6xl text-base-content italic text-center">
               神秘兌換券！（請點選看背面）
@@ -155,7 +156,7 @@ export default function Home() {
                 width={350}
                 height={200}
                 alt="Shutup"
-                className="object-contain w-fit h-fit"
+                className="object-contain"
               />
           </CardFlip>
           <CardFlip>
@@ -164,35 +165,52 @@ export default function Home() {
               width={350}
               height={200}
               alt="Shutup"
-              className="w-fit h-fit object-contain"
+              className="object-contain"
             />
             <Image
               src="/神秘兌換券/voucher2_back.png"
               width={350}
               height={200}
               alt="Shutup"
-              className="object-contain w-fit h-fit"
+              className="object-contain"
             />
           </CardFlip>
           </div>
           
         </ParallaxLayer>
-        {/* <ParallaxLayer speed={1} offset={2} className="flex flex-col gap-8">
-          
-          <CardFlip>
+        {/* <ParallaxLayer speed={1} offset={2} factor={0.5} className="flex flex-col">
+           <CardFlip>
             <Image
-              src="/神秘兌換券/voucher1_front.png"
+              src="/神秘兌換券/voucher2_front.png"
               width={350}
               height={200}
               alt="Shutup"
-              className="w-full h-full object-contain"
+              className="object-contain"
             />
             <Image
-              src="/神秘兌換券/voucher1_back.png"
+              src="/神秘兌換券/voucher2_back.png"
               width={350}
               height={200}
               alt="Shutup"
-              className="object-contain w-full h-full"
+              className="object-contain"
+            />
+          </CardFlip>
+        </ParallaxLayer>
+        <ParallaxLayer speed={1} offset={3} factor={0.5} className="flex flex-col">
+           <CardFlip>
+            <Image
+              src="/神秘兌換券/voucher2_front.png"
+              width={350}
+              height={200}
+              alt="Shutup"
+              className="object-contain"
+            />
+            <Image
+              src="/神秘兌換券/voucher2_back.png"
+              width={350}
+              height={200}
+              alt="Shutup"
+              className="object-contain"
             />
           </CardFlip>
         </ParallaxLayer> */}
