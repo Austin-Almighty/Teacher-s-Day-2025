@@ -11,7 +11,7 @@ export default function Home() {
   
   return (
     <div className="h-dvh w-full items-center bg-gradient-to-b from-blue-800 to-blue-950">
-      <Parallax pages={12}>
+      <Parallax pages={5}>
         <ParallaxLayer
           factor={2}
           speed={0.5}
@@ -129,6 +129,16 @@ export default function Home() {
         <ParallaxLayer
           factor={2}
           offset={2}
+          speed={0.5}
+          style={{
+            backgroundImage: `url(/sea_bubble.jpg)`,
+            backgroundSize: "cover",
+          }}
+          className="flex items-center justify-center h-full w-full"
+        ></ParallaxLayer>
+        <ParallaxLayer
+          factor={2.5}
+          offset={3}
           speed={0.5}
           style={{
             backgroundImage: `url(/sea_bubble.jpg)`,
