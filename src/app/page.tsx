@@ -1,16 +1,12 @@
 "use client"
 import  { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import { useState } from "react";
 import CardFlip from "./_components/CardFlip";
 import Image from "next/image";
 
 export default function Home() {
- 
-
-  
   
   return (
-    <div className="h-dvh w-full items-center bg-gradient-to-b from-blue-800 to-blue-950">
+    <div className="h-fit w-full items-center bg-gradient-to-b from-blue-800 to-blue-950">
       <Parallax pages={5}>
         <ParallaxLayer
           factor={2}
