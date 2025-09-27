@@ -1,33 +1,55 @@
-/* eslint-disable react/no-unescaped-entities */
+"use client";
+import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
+import CardFlip from "../_components/CardFlip";
 import Image from "next/image";
-import Timer from "../_components/Timer";
-import Ship from "../_components/cruise.svg";
-// import Wave from "../../../public/wave.png"; // in /public
-// import { animated } from "@react-spring/web";
-
+import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
+  const [pages, setPages] = useState(3);
+  const ref = useRef<IParallax>(null);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 640px)"); // sm breakpoint
+
+    const apply = () => setPages(mq.matches ? 3 : 5);
+    apply();
+
+    // use modern API if available, otherwise fallback
+    const listener = () => apply();
+
+    if (typeof mq.addEventListener === "function") {
+      mq.addEventListener("change", listener);
+      return () => mq.removeEventListener("change", listener);
+    } else {
+      // Safari <14 fallback
+      mq.addListener(listener);
+      return () => mq.removeListener(listener);
+    }
+  }, []);
+
   return (
-    <div className="relative flex flex-col h-dvh overflow-hidden">
-      <Image
-        src="/wave.svg" // in /public
-        alt=""
-        fill // makes it position: absolute; inset: 0
-        sizes="100vw"
-        className="hidden sm:block object-cover sm:object-cover z-100 object-[center_-80px] sm:object-[center_80px] md:object-[center_0px] lg:object-[center_40px]"
-        priority
-      />
-      <div className="relative z-10">
-        <header
-          data-theme="aqua"
-          className="flex items-center justify-center p-16 sm:p-24 bg-primary w-full"
+    <div className="h-screen w-full items-center bg-gradient-to-b from-blue-800 to-blue-950">
+      <Parallax pages={pages} ref={ref} key={pages}>
+        <ParallaxLayer
+          factor={2}
+          speed={0.5}
+          offset={0}
+          style={{
+            backgroundImage: `url(/sea_surface.jpg)`,
+            backgroundSize: "cover",
+          }}
+          className="flex items-center justify-start flex-col p-4 sm:p-8"
+        ></ParallaxLayer>
+        <ParallaxLayer
+          speed={1}
+          offset={0}
+          factor={1}
+          className="py-8 px-8 justify-start items-center flex flex-col gap-8"
         >
           <svg
-        
             viewBox="0 0 847 122"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto min-w-[350px]"
+            className="w-full h-auto min-w-[350px] min-h-[180px]"
           >
             <g filter="url(#filter0_d_18_2)">
               <mask
@@ -90,28 +112,244 @@ export default function Home() {
               </filter>
             </defs>
           </svg>
-        </header>
-        <main
-          data-theme="aqua"
-          className="flex flex-col items-center bg-primary px-4 sm:px-0 h-full"
+          <div className="flex flex-col items-center justify-center bg-blue-800/50 p-8 rounded-lg shadow-lg gap-4 w-screen">
+            <h1 className="font-extrabold text-2xl md:text-4xl lg:text-6xl text-base-content italic text-center">
+              chatGPTI 2025
+            </h1>
+            <h1 className="font-extrabold text-2xl md:text-4xl lg:text-6xl text-base-content text-center">
+              祝老師教師ㄗㄟˊ快樂！
+            </h1>
+          </div>
+          <div className="flex flex-col items-center justify-center p-8 rounded-lg shadow-lg h-fit w-fit bg-blue-800/50 hover:scale-110 transition-transform">
+            <video
+              className="max-h-150 w-full min-h-150"
+              src="/happy_squid.mp4" // place in /public/videos
+              controls
+              playsInline
+              preload="metadata"
+            />
+          </div>
+          <div className="flex flex-col items-center justify-center bg-blue-800/50 p-8 rounded-lg shadow-lg gap-4 w-screen">
+            <h1 className="font-extrabold text-xl md:text-2xl text-base-content text-center">
+              譯注 : 賊賊是所辦最新的開心果，祝老師天天開心！  
+            </h1>
+          </div>
+          <div className="flex items-center justify-center w-30 sm:w-50 gap-8">
+            <Image src={"/fish1.svg"} alt="fish1" height={800} width={800}/>
+            <Image src={"/fish2.svg"} alt="fish1" height={800} width={800}/>
+            <Image src={"/fish3.svg"} alt="fish1" height={800} width={800}/>
+          </div>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          factor={2}
+          offset={1}
+          speed={0.5}
+          style={{
+            backgroundImage: `url(/sea_bubble.jpg)`,
+            backgroundSize: "cover",
+          }}
+          className="flex items-center justify-center h-full w-full"
+        ></ParallaxLayer>
+        <ParallaxLayer
+          factor={2}
+          offset={2}
+          speed={0.5}
+          style={{
+            backgroundImage: `url(/sea_bubble.jpg)`,
+            backgroundSize: "cover",
+          }}
+          className="flex items-center justify-center h-full w-full"
+        ></ParallaxLayer>
+        <ParallaxLayer
+          factor={2.5}
+          offset={3}
+          speed={0.5}
+          style={{
+            backgroundImage: `url(/sea_bubble.jpg)`,
+            backgroundSize: "cover",
+          }}
+          className="flex items-center justify-center h-full w-full"
+        ></ParallaxLayer>
+        <ParallaxLayer
+          speed={1}
+          offset={1}
+          factor={0.5}
+          className="flex flex-col gap-8"
         >
-          <h1 className="font-extrabold text-primary-content pb-15 text-xl sm:text-3xl text-center">
-            Countdown to Teacher's Day 2025
-          </h1>
-          <Timer dataTheme={"aqua"} />
-          <h1 className="font-extrabold text-primary-content pt-15 text-2xl sm:text-3xl text-center">
-            Come back for more surprises!
-          </h1>
-          <Image
-            src={Ship}
-            alt="cruise ship"
-            width={200}
-            height={200}
-            priority
-            className="animate-bob will-change-transform"
-          />
-        </main>
-      </div>
+          <div className="flex flex-col items-center justify-center bg-blue-800/50 p-8 rounded-lg shadow-lg gap-4">
+            <h1 className="font-extrabold text-2xl md:text-4xl lg:text-6xl text-base-content italic text-center">
+              魔法兌換券！（請點選看背面）
+            </h1>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher1_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+                priority
+              />
+              <Image
+                src="/vouchers/voucher1_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher2_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher2_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher3_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher3_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher4_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher4_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher5_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher5_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher6_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher6_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher7_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher7_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher8_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher8_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher9_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher9_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+          </div>
+        </ParallaxLayer>
+       
+      </Parallax>
     </div>
   );
 }

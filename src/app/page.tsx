@@ -131,7 +131,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center justify-center bg-blue-800/50 p-8 rounded-lg shadow-lg gap-4 w-screen">
             <h1 className="font-extrabold text-xl md:text-2xl text-base-content text-center">
-              Disclaimer: 賊賊是所辦最新的開心果，祝老師天天開心！  
+              譯注 : 賊賊是所辦最新的開心果，祝老師天天開心！  
             </h1>
           </div>
           <div className="flex items-center justify-center w-30 sm:w-50 gap-8">
@@ -179,7 +179,7 @@ export default function Home() {
         >
           <div className="flex flex-col items-center justify-center bg-blue-800/50 p-8 rounded-lg shadow-lg gap-4">
             <h1 className="font-extrabold text-2xl md:text-4xl lg:text-6xl text-base-content italic text-center">
-              神秘兌換券！（請點選看背面）
+              魔法兌換券！（請點選看背面）
             </h1>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
