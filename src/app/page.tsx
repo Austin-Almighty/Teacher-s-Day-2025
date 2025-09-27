@@ -173,6 +173,7 @@ export default function Home() {
                 height={200}
                 alt="Shutup"
                 className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
                 priority
               />
               <Image
@@ -181,6 +182,7 @@ export default function Home() {
                 height={200}
                 alt="Shutup"
                 className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
               />
           </CardFlip>
           <CardFlip>
@@ -190,6 +192,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
             <Image
               src="/vouchers/voucher2_back.png"
@@ -197,6 +200,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
           </CardFlip>
           <CardFlip>
@@ -206,6 +210,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
             <Image
               src="/vouchers/voucher3_back.png"
@@ -213,6 +218,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
           </CardFlip>
           <CardFlip>
@@ -222,6 +228,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
             <Image
               src="/vouchers/voucher4_back.png"
@@ -229,6 +236,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
           </CardFlip>
           <CardFlip>
@@ -238,6 +246,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
             <Image
               src="/vouchers/voucher5_back.png"
@@ -245,6 +254,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
           </CardFlip>
           <CardFlip>
@@ -254,6 +264,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
             <Image
               src="/vouchers/voucher6_back.png"
@@ -261,6 +272,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
           </CardFlip>
           <CardFlip>
@@ -270,6 +282,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
             <Image
               src="/vouchers/voucher7_back.png"
@@ -277,6 +290,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
           </CardFlip>
           <CardFlip>
@@ -286,6 +300,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
             <Image
               src="/vouchers/voucher8_back.png"
@@ -293,6 +308,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
           </CardFlip>
           <CardFlip>
@@ -302,6 +318,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
             <Image
               src="/vouchers/voucher9_back.png"
@@ -309,6 +326,7 @@ export default function Home() {
               height={200}
               alt="Shutup"
               className="object-contain"
+              sizes="(max-width: 640px) 18rem, 24rem"
             />
           </CardFlip>
           </div>
