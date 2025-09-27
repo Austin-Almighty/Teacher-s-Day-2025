@@ -184,7 +184,7 @@ export default function Home() {
                 priority
               />
               <Image
-                src="/神秘兌換券/voucher1_back.png"
+                src="/vouchers/voucher1_back.png"
                 width={350}
                 height={200}
                 alt="Shutup"
