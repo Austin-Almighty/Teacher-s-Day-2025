@@ -135,7 +135,7 @@ export default function Home() {
             </h1>
           </div>
           <div className="flex items-center justify-center w-full gap-8">
-            <Image src={"/skyline.svg"} alt="skyline" height={700} width={1000} className="w-full"/>
+            <Image src={"/skyline.svg"} alt="skyline" height={700} width={1000} className="w-full min-h-[800px]"/>
           </div>
         </ParallaxLayer>
 
