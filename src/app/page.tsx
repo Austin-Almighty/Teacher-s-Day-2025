@@ -134,10 +134,8 @@ export default function Home() {
               譯注 : 賊賊是所辦最新的開心果，祝老師天天開心！  
             </h1>
           </div>
-          <div className="flex items-center justify-center w-30 sm:w-50 gap-8">
-            <Image src={"/fish1.svg"} alt="fish1" height={800} width={800}/>
-            <Image src={"/fish2.svg"} alt="fish1" height={800} width={800}/>
-            <Image src={"/fish3.svg"} alt="fish1" height={800} width={800}/>
+          <div className="flex items-center justify-center w-50 sm:w-70 gap-8">
+            <Image src={"/skyline.svg"} alt="skyline" height={700} width={1000}/>
           </div>
         </ParallaxLayer>
 
