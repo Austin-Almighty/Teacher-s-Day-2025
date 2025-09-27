@@ -3,7 +3,7 @@ import Image from "next/image";
 import Timer from "../_components/Timer";
 import Ship from "../_components/cruise.svg";
 // import Wave from "../../../public/wave.png"; // in /public
-import { animated } from "@react-spring/web";
+// import { animated } from "@react-spring/web";
 
 
 export default function Home() {
