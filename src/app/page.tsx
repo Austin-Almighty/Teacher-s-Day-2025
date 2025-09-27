@@ -131,10 +131,10 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center justify-center bg-blue-800/50 p-8 rounded-lg shadow-lg gap-4 w-screen">
             <h1 className="font-extrabold text-xl md:text-2xl text-base-content text-center">
-              Disclaimer: 賊賊是所辦最新的開心果，祝老師天天開心，事事順心！  
+              Disclaimer: 賊賊是所辦最新的開心果，祝老師天天開心！  
             </h1>
           </div>
-          <div className="flex items-center justify-center w-50 gap-8">
+          <div className="flex items-center justify-center w-30 sm:w-50 gap-8">
             <Image src={"/fish1.svg"} alt="fish1" height={800} width={800}/>
             <Image src={"/fish2.svg"} alt="fish1" height={800} width={800}/>
             <Image src={"/fish3.svg"} alt="fish1" height={800} width={800}/>
@@ -348,42 +348,7 @@ export default function Home() {
             </CardFlip>
           </div>
         </ParallaxLayer>
-        {/* <ParallaxLayer speed={1} offset={2} factor={0.5} className="flex flex-col">
-           <CardFlip>
-            <Image
-              src="/神秘兌換券/voucher2_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-            <Image
-              src="/神秘兌換券/voucher2_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-          </CardFlip>
-        </ParallaxLayer>
-        <ParallaxLayer speed={1} offset={3} factor={0.5} className="flex flex-col">
-           <CardFlip>
-            <Image
-              src="/神秘兌換券/voucher2_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-            <Image
-              src="/神秘兌換券/voucher2_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-            />
-          </CardFlip>
-        </ParallaxLayer> */}
+       
       </Parallax>
     </div>
   );
