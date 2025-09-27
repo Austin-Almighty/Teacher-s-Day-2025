@@ -1,25 +1,29 @@
-"use client"
-import  { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
+"use client";
+import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import CardFlip from "./_components/CardFlip";
 import Image from "next/image";
-import {useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
- const [pages, setPages] = useState(3);
- const ref = useRef<IParallax>(null);
-
+  const [pages, setPages] = useState(3);
+  const ref = useRef<IParallax>(null);
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 640px)"); // sm breakpoint
+
     const apply = () => setPages(mq.matches ? 3 : 5);
     apply();
-    
-    if (mq.addEventListener) mq.addEventListener("change", apply);
-    else if ((mq as any).addListener) (mq as any).addListener(apply);
 
-    return () => {
-      if (mq.removeEventListener) mq.removeEventListener("change", apply);
-      else if ((mq as any).removeListener) (mq as any).removeListener(apply);
-    };
+    // use modern API if available, otherwise fallback
+    const listener = () => apply();
+
+    if (typeof mq.addEventListener === "function") {
+      mq.addEventListener("change", listener);
+      return () => mq.removeEventListener("change", listener);
+    } else {
+      // Safari <14 fallback
+      mq.addListener(listener);
+      return () => mq.removeListener(listener);
+    }
   }, []);
 
   return (
@@ -34,8 +38,7 @@ export default function Home() {
             backgroundSize: "cover",
           }}
           className="flex items-center justify-start flex-col p-4 sm:p-8"
-        >
-        </ParallaxLayer>
+        ></ParallaxLayer>
         <ParallaxLayer
           speed={1}
           offset={0}
@@ -126,9 +129,8 @@ export default function Home() {
               preload="metadata"
             />
           </div>
-          
         </ParallaxLayer>
-        
+
         <ParallaxLayer
           factor={2}
           offset={1}
@@ -159,7 +161,12 @@ export default function Home() {
           }}
           className="flex items-center justify-center h-full w-full"
         ></ParallaxLayer>
-        <ParallaxLayer speed={1} offset={1} factor={0.5} className="flex flex-col gap-8">
+        <ParallaxLayer
+          speed={1}
+          offset={1}
+          factor={0.5}
+          className="flex flex-col gap-8"
+        >
           <div className="flex flex-col items-center justify-center bg-blue-800/50 p-8 rounded-lg shadow-lg gap-4">
             <h1 className="font-extrabold text-2xl md:text-4xl lg:text-6xl text-base-content italic text-center">
               神秘兌換券！（請點選看背面）
@@ -184,153 +191,152 @@ export default function Home() {
                 className="object-contain"
                 sizes="(max-width: 640px) 18rem, 24rem"
               />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/vouchers/voucher2_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-            <Image
-              src="/vouchers/voucher2_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/vouchers/voucher3_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-            <Image
-              src="/vouchers/voucher3_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/vouchers/voucher4_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-            <Image
-              src="/vouchers/voucher4_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/vouchers/voucher5_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-            <Image
-              src="/vouchers/voucher5_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/vouchers/voucher6_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-            <Image
-              src="/vouchers/voucher6_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/vouchers/voucher7_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-            <Image
-              src="/vouchers/voucher7_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/vouchers/voucher8_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-            <Image
-              src="/vouchers/voucher8_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-          </CardFlip>
-          <CardFlip>
-            <Image
-              src="/vouchers/voucher9_front.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-            <Image
-              src="/vouchers/voucher9_back.png"
-              width={350}
-              height={200}
-              alt="Shutup"
-              className="object-contain"
-              sizes="(max-width: 640px) 18rem, 24rem"
-            />
-          </CardFlip>
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher2_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher2_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher3_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher3_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher4_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher4_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher5_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher5_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher6_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher6_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher7_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher7_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher8_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher8_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
+            <CardFlip>
+              <Image
+                src="/vouchers/voucher9_front.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+              <Image
+                src="/vouchers/voucher9_back.png"
+                width={350}
+                height={200}
+                alt="Shutup"
+                className="object-contain"
+                sizes="(max-width: 640px) 18rem, 24rem"
+              />
+            </CardFlip>
           </div>
-          
         </ParallaxLayer>
         {/* <ParallaxLayer speed={1} offset={2} factor={0.5} className="flex flex-col">
            <CardFlip>
