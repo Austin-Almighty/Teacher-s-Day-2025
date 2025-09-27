@@ -120,14 +120,24 @@ export default function Home() {
               祝老師教師ㄗㄟˊ快樂！
             </h1>
           </div>
-          <div className="flex flex-col items-center justify-center p-8 rounded-lg shadow-lg gap-4 h-150 w-fit">
+          <div className="flex flex-col items-center justify-center p-8 rounded-lg shadow-lg h-fit w-fit bg-blue-800/50 hover:scale-110 transition-transform">
             <video
-              className="max-h-150 w-full hover:scale-110 min-h-150"
+              className="max-h-150 w-full min-h-150"
               src="/happy_squid.mp4" // place in /public/videos
               controls
               playsInline
               preload="metadata"
             />
+          </div>
+          <div className="flex flex-col items-center justify-center bg-blue-800/50 p-8 rounded-lg shadow-lg gap-4 w-screen">
+            <h1 className="font-extrabold text-xl md:text-2xl text-base-content text-center">
+              Disclaimer: 賊賊是所辦最新的開心果，祝老師天天開心，事事順心！  
+            </h1>
+          </div>
+          <div className="flex items-center justify-center w-50 gap-8">
+            <Image src={"/fish1.svg"} alt="fish1" height={800} width={800}/>
+            <Image src={"/fish2.svg"} alt="fish1" height={800} width={800}/>
+            <Image src={"/fish3.svg"} alt="fish1" height={800} width={800}/>
           </div>
         </ParallaxLayer>
 
